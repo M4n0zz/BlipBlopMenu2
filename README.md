@@ -1,6 +1,6 @@
 
 
-Description
+**Description**
 
 BlipBlopMenu2 is targeted for English Pokemon Red, Blue and Yellow versions and enables the use of TimOS environment, originally created by TimoVM from glitchcity.wiki.
 
@@ -10,7 +10,7 @@ BlipBlopMenu2 comes with a small series of preinstalled scripts, giving a new fe
 
 
 
-Installation
+**Installation**
 
 Two are the possible ways of installing BlipBlopMenu2 on your current savegame.
 
@@ -25,4 +25,5 @@ py bbm2.py [filename].sav
 Method 2:
 By injecting HEX code inside the game. This method requires a special proceedure that allows the player to build a bootstrap from glitching the game to the point where he is allowed to manipulate game's code by using ACE.
 To use this method, you can follow "TimoVM's gen 1 ACE setups" tutorial and then follow the instructions included in .asm 
+
 [https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups]
