@@ -26,7 +26,7 @@ Method 2:
 
 **By injecting HEX code inside the game.**
 
-This method requires a special proceedure that allows the player to build a bootstrap from glitching the game to the point where he is allowed to manipulate game's code by using ACE.
+This method requires a special procedure which allows the player to build a bootstrap from glitching the game to the point where he is allowed to manipulate game's code by using ACE.
 
 To use this method, you can follow [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups) tutorial and then follow the instructions included in the corresponding .asm file.
 
