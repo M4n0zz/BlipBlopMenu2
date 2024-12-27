@@ -16,7 +16,7 @@ Method 1:
 
 **By patching an already existing .sav file.**
 
-This is by far the simplest method in case you are using an emulator or actual hardware with a gameboy cart reader.
+This is the simplest method in case you are using an emulator or actual hardware with a gameboy cart reader.
 To do so, you can use one of the following files:
 - [bbm2.exe](https://github.com/M4n0zz/BlipBlopMenu2/releases/download/patcher-v1.0/bbm2.exe) (Windows): Drag and drop your .sav file onto bbm.exe. Your savegame will automatically be patched.
 - [bbm2.py](https://github.com/M4n0zz/BlipBlopMenu2/blob/main/bbm2.py) (Python): Download bbm2.py and run the following command: py bbm2.py [filename].sav
