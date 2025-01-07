@@ -130,7 +130,7 @@ ff80-ff83: OAM DMA hijack, copies from $bb11
 
 
 
-Source to be compiled with RGBDS
+Source is compiled with RGBDS
 */
 
 
