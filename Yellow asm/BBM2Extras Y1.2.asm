@@ -26,7 +26,7 @@ Instructions
 1) 	- Installation on actual hardware or emulator: You can use TimoVM's NicknameConverter and NicknameWriter from the given page.
 	- Installation on emulator with debugging features: Just copy and paste the HEX code into address $d8b4.
 2) Run the code from NicknameWriter.
-3) Verify new scripts are intalled and work correctly.
+3) Verify new scripts are installed and work correctly.
 
 Warning! Scripts are stored in addresses $c8c3-$c976 inside TimOS region.
 Make sure you are not using this area before installation!
