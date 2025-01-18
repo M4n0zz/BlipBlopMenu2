@@ -1,8 +1,8 @@
 # BlipBlopMenu2
 
-This hack targets English Pokemon Red, Blue and Yellow versions and enables the use of TimOS environment, originally created by TimoVM from glitchcity.wiki.
-By pressing Select button the menu selector appears enabling the installation/execution of custom code.
-BlipBlopMenu2 comes with a small series of preinstalled scripts, giving a new feel in game's plot.
+This mod menu targets original Pokemon Red, Blue and Yellow En versions and enables the activation of TimOS environment, originally created by TimoVM from glitchcity.wiki.
+By pressing Select button the menu selector appears enabling the installation/execution of custom code, without altering any of the game's functionality.
+BlipBlopMenu2 comes with a series of preinstalled scripts, giving a new feel in game's plot.
 
 
 ----
