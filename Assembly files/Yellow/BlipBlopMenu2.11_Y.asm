@@ -145,7 +145,7 @@ LOAD "Installer", WRAMX[$D8B4]
 ;;;;;;;;;;;; Installer payload ;;;;;;;;;;;; 
 Installer:
 ld a, $02
-call $3e99			; Open SRAM2
+call $3e99		; Open SRAM2
 
 ; move NicknameWriter into TimOS
 ld bc, $0041		; 65 bytes
@@ -157,35 +157,35 @@ call CopyData
 ; move main payload in unused memory $d669
 ld c, DMAhijack.end - MSPhijack	; 133 bytes
 pop de
-ld hl, .end			; origin = $d8fb
+ld hl, .end		; origin = $d8fb
 call CopyData		; CopyData
 
 ; move scripts in unused memory
 ; copy trespassing to d49c
-ld c, $12			; 18 bytes
+ld c, $12		; 18 bytes
 ld de, $d49c		; to unused memory
 call CopyData		; CopyData - due to previous copyData, de points correctly
 ; copy motorbike to d47a
-ld c, $18			; 24 bytes
-ld e, $7a			; to unused memory
+ld c, $18		; 24 bytes
+ld e, $7a		; to unused memory
 call CopyData		; CopyData - due to previous copyData, de points correctly
 
 ; move OAM hijack + TimOS Loader into SRAM Bank 2
-ld c, $4c			; 76 bytes
+ld c, $4c		; 76 bytes
 ld de, $bb11		; destination
 call CopyData		; CopyData
 
 ; move TimOS pointer
-ld c, $08			; 8 bytes
+ld c, $08		; 8 bytes
 ld de, $c7bd		; destination
 call CopyData		; CopyData
 
 ; move TimOS enablers
-ld c, $19			; 25 bytes
+ld c, $19		; 25 bytes
 ld de, timospayloads	; destination
 call CopyData		; CopyData
 
-ld a, $05			; set no of scripts
+ld a, $05		; set no of scripts
 ld [$c6e9], a
 
 .end
@@ -204,30 +204,30 @@ jr z, .timoscheck
 di
 ; opens SRAM2
 ld a, $02
-call $3e99			; OpenSRAM to bank 02
+call $3e99		; OpenSRAM to bank 02
 
 ; copy 4 bytes to hijack dma
 ld bc, $0004		; 4 bytes to be copied to ff80 earlier set to de
 ld de, $ff80		; destination
 ld hl, $bb11		; from SRAM 2
-call CopyData			; CopyData - the stored version of .OAMDMApayload. 
+call CopyData		; CopyData - the stored version of .OAMDMApayload. 
 
 ; copy timos loader to df15
-ld c, $48			; 72 bytes
+ld c, $48		; 72 bytes
 ld de, $df15		; to the top of the stack
 call CopyData		; due to previous copyData, de points towards TimOS loader payload
 
 ; closes SRAM
-call $3ea9			; CloseSRAM
+call $3ea9		; CloseSRAM
 
 ; checks and initialises map if unused room is detected in place of HoF
 ld hl, $d35d		; wCurMap: 00=Pallet town, 76=HoF room, 0b=unused
 ld a, [hl]
-cp a, $0b			; if unused room is detected
+cp a, $0b		; if unused room is detected
 jr nz, .endcp 	
 ld [hl], $76		; set room back to HoF
 ld hl, $5c83		; run MainMenu.pressedA, as it is intended by the game
-call $3917			; Bankswitch with preset bank 1
+call $3917		; Bankswitch with preset bank 1
 
 .endcp
 ei
@@ -236,7 +236,7 @@ ei
 call timosloader	; TimOS loader checks - $df15
 
 .curmsp	
-jp $00b0			; a safe jump address to be replaced automatically by msp manipulator
+jp $00b0		; a safe jump address to be replaced automatically by msp manipulator
 
 .end
 
@@ -247,22 +247,22 @@ DMAhijack:
 
 ; Preload addresses
 ld hl, $d36e		; wCurMapScriptPtr+1
-ld de, MSPhijack.curmsp+2	; Original MSP backup address+1 - $d6a3
+ld de, MSPhijack.curmsp+2  ; Original MSP backup address+1 - $d6a3
 
 ; checks if MSP is hijacked
-ld a, d				; Custom wCurMapScriptPtr high byte check
-cp a, [hl]			; Compares current to custom pointer
+ld a, d			; Custom wCurMapScriptPtr high byte check
+cp a, [hl]		; Compares current to custom pointer
 jr z, .payload1
 
 ; room checking to bypass HoF reset
 ld bc, $d35d		; wCurMap: 00=Pallet town, 76=HoF room, 0b=unused
 ld a, [bc]
-cp a, $76			; if wCurMap = HoF
+cp a, $76		; if wCurMap = HoF
 jr nz, .backup
 ld a, [$d357]		; wLetterPrintingDelayFlags
-and a				; check if text is active
+and a			; check if text is active
 jr nz, .payload1	; if 0 do following
-ld a, $0b			; set wCurMap to unused id
+ld a, $0b		; set wCurMap to unused id
 ld [bc], a
 
 ; hijacks MSP
@@ -274,14 +274,14 @@ ld a, [hl]
 ld [de], a
 ld a, $69
 ld [hl+], a
-ld [hl], d			; d669
+ld [hl], d		; d669
 
 ; if scriptflag's bit0=0, skip leavemealone script
-.payload1			; Always ignore encounters
+.payload1		; Always ignore encounters
 ld hl, DMAhijack.bits	; $d6ed
 bit 0, [hl]
 jr z, .payload2
-ld a, l			 	; a!=0
+ld a, l			; a!=0
 ld [$d13b], a		; wNumberOfNoRandomBattleStepsLeft
 
 ; if scriptflag's bit1=0, skip trespassing script
@@ -295,7 +295,7 @@ call trespass		; trespassing script
 bit 2, [hl]
 jr z, .endoam 
 ; if walking activates bike
-ld l, $ff			; hl = d6ff [wWalkBikeSurfState]
+ld l, $ff		; hl = d6ff [wWalkBikeSurfState]
 xor a
 cp a, [hl]
 jr nz, .checkb
@@ -312,7 +312,7 @@ ret
 
 ;;;;;;;;;;;; Temporary data ;;;;;;;;;;;; 
 .bits
-db $00				;  Flags initialisation
+db $00			;  Flags initialisation
 
 .end
 ENDL
@@ -326,8 +326,8 @@ ld a, [$d72f]		; spin check
 and a
 ret nz
 ldh a, [$b4] 		; If Pressed
-bit 1, a 			; B Button
-ld a, $00			; we cannot use xor a, since it will reset z
+bit 1, a 		; B Button
+ld a, $00		; we cannot use xor a, since it will reset z
 jr z, .skip
 inc a
 .skip
@@ -358,14 +358,14 @@ cp a, $07
 ret nc
 and a
 ret z
-call $0b7f			; AdvancePlayerSprite
+call $0b7f		; AdvancePlayerSprite
 jr .loop
 
 ENDL
 
 ;;;;;;;;;;;; OAM hijack payload ;;;;;;;;;;;;
 call DMAhijack		; if initial payload changes, change address acordingly
-ld [c], a			; setup to trigger stock OAM payload
+ld [c], a		; setup to trigger stock OAM payload
 
 
 LOAD "timos_loader", WRAMX[$df15]
@@ -376,8 +376,8 @@ LOAD "timos_loader", WRAMX[$df15]
 timosloader:
 ; Read select button state - It automatically skips false positives like it happens in start menu
 ldh a, [$b3]		; Read buttons [hJoyPressed]
-bit 2, a			; Compare to select button [bit2]
-ret z 				; If select not pressed, stop executing
+bit 2, a		; Compare to select button [bit2]
+ret z 			; If select not pressed, stop executing
 
 ldh a, [$b8]		; Saves hLoadedROMBank
 push af
@@ -388,18 +388,18 @@ call tempdata		; .tempdata
 ; safedata - this part should not be overwritten while timos is active, otherwise it will crash
 ld hl, hljump		; We set hl to static address to continue execution after CloseTextDisplay
 push hl
-call $28d8			; CloseTextDisplay
+call $28d8		; CloseTextDisplay
 
 hljump:
-pop af				; Restores saved rom bank
+pop af			; Restores saved rom bank
 ldh [$b8], a 
 
-jp $216b			; PlayDefaultMusic
+jp $216b		; PlayDefaultMusic
 
 ;;;;;;;;;;;; TimOS loader ;;;;;;;;;;;;
 ; tempdata ($df32) - - this part can be overwritten safely while timos is active
 tempdata:
-call $370f			; SaveScreenTilesToBuffer1
+call $370f		; SaveScreenTilesToBuffer1
 
 ld hl, $cf90		; wCurPartySpecies
 ld [hl], $94		; Change nickname pokemon to Abra, so we avoid random missigno names crashing the game
@@ -412,20 +412,20 @@ ld a, $9d       	; BlipBlop sound
 call $2211      	; PlayMusic
 
 ld hl, $6f39		; To execute DisplayTextIDInit.drawTextBoxBorder after bankswitch
-call $3917			; Bankswitch hardcoded to bank 1
+call $3917		; Bankswitch hardcoded to bank 1
 
 ;;;;;;;;;;;; TimOS payload ;;;;;;;;;;;;
 ; timos - 20 bytes 
-ld a, $1c			; ROM bank number
-call $3e92			; Bankswitch+14
-ld b, $03			; SRAM bank number
+ld a, $1c		; ROM bank number
+call $3e92		; Bankswitch+14
+ld b, $03		; SRAM bank number
 ld hl, $ba53		; Origin/destination
 ld de, $c6e8		; Destination/origin
 push hl
 push de
 push bc
 push de
-call $7c58			; CopyBoxToOrFromSRAM+1
+call $7c58		; CopyBoxToOrFromSRAM+1
 
 ENDL
 
@@ -448,7 +448,7 @@ ret
 
 ; Repeller - 12 bytes
 ld b, $01
-call common		; .common
+call common
 and a, b
 ret nz
 xor a
@@ -457,6 +457,6 @@ ret
 
 ; Motorbike - 4 bytes
 ld b, $04
-jr common		; .common
+jr common
 
 ENDL
