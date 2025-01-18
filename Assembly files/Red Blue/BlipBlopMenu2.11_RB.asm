@@ -163,12 +163,12 @@ call CopyData
 ; move main payload in unused memory $d66a
 ld c, DMAhijack.end - MSPhijack	; 128 bytes
 pop de
-ld hl, .end			; origin - $d8ff
+ld hl, .end		; origin - $d8ff
 call CopyData
 
 ; move scripts in unused memory
 ; copy trespassing and motorbike payloads to d430
-ld c, $32			; 50 bytes
+ld c, $32		; 50 bytes
 ld de, $d430		; to unused memory
 call CopyData		; due to previous copyData, de points correctly
 
@@ -178,16 +178,16 @@ ld de, $bb11		; destination
 call CopyData
 
 ; move TimOS pointer
-ld c, $08			; 8 bytes
+ld c, $08		; 8 bytes
 ld de, $c7c4		; destination
 call CopyData
 
 ; move TimOS enablers + patch
-ld c, $1f			; 49 bytes
+ld c, $1f		; 49 bytes
 ld de, patch		; destination - $c892
 call CopyData
 
-ld a, $05			; set no of scripts
+ld a, $05		; set no of scripts
 ld [$c6e9], a
 
 ld hl, $c703		; patches timos return
@@ -222,7 +222,7 @@ ld hl, $bb11		; from SRAM 2
 call CopyData		; the stored version of .OAMDMApayload. 
 
 ; copy timos loader to df15
-ld c, $48			; 72 bytes
+ld c, $48		; 72 bytes
 ld de, $df15		; to the top of the stack
 call CopyData		; due to previous copyData, de points towards TimOS loader payload
 
@@ -233,11 +233,11 @@ ld [hl], h
 ; checks and initialises map if unused room is detected in place of HoF
 ld hl, $d35e		; wCurMap: 00=Pallet town, 76=HoF room, 0b=unused
 ld a, [hl]
-cp a, $0b			; if unused room is detected
+cp a, $0b		; if unused room is detected
 jr nz, .endcp 	
 ld [hl], $76		; set room back to HoF
 ld hl, $5bd1		; run MainMenu.pressedA, as it is intended by the game
-call $3922			; Bankswitch with preset bank 1
+call $3922		; Bankswitch with preset bank 1
 
 .endcp
 ei
@@ -246,7 +246,7 @@ ei
 call timosloader	; TimOS loader checks - $df15
 
 .curmsp	
-jp $00b4			; a safe jump address to be replaced automatically by msp manipulator
+jp $00b4		; a safe jump address to be replaced automatically by msp manipulator
 	
 .end	
 	
@@ -260,19 +260,19 @@ ld hl, $d36f		; wCurMapScriptPtr+1
 ld de, MSPhijack.curmsp+2	; Original MSP backup address+1 - $d6a5
 
 ; checks if MSP is hijacked
-ld a, d				; Custom wCurMapScriptPtr high byte check
-cp a, [hl]			; Compares current to custom pointer
+ld a, d			; Custom wCurMapScriptPtr high byte check
+cp a, [hl]		; Compares current to custom pointer
 jr z, .payload1
 
 ; room checking to bypass HoF reset
 ld bc, $d35e		; wCurMap: 00=Pallet town, 76=HoF room, 0b=unused
 ld a, [bc]
-cp a, $76			; if wCurMap = HoF
+cp a, $76		; if wCurMap = HoF
 jr nz, .backup
 ld a, [$d358]		; wLetterPrintingDelayFlags
-and a				; check if text is active
+and a			; check if text is active
 jr nz, .payload1	; if 0 do following
-ld a, $0b			; set wCurMap to unused id
+ld a, $0b		; set wCurMap to unused id
 ld [bc], a
 
 ; hijacks MSP
@@ -284,14 +284,14 @@ ld a, [hl]
 ld [de], a
 ld a, $6a
 ld [hl+], a
-ld [hl], d			; d66a
+ld [hl], d		; d66a
 
 ; if scriptflag's bit0=0, skip leavemealone script
-.payload1			; Always ignore encounters
+.payload1		; Always ignore encounters
 ld hl, DMAhijack.bits	; $d6e9
 bit 0, [hl]
 jr z, .payload2
-ld a, l			 	; a!=0
+ld a, l			; a!=0
 ld [$d13c], a		; wNumberOfNoRandomBattleStepsLeft
 
 ; if scriptflag's bit1=0, skip trespassing script
@@ -315,7 +315,7 @@ ret
 
 ;;;;;;;;;;;; Temporary data ;;;;;;;;;;;; 
 .bits
-db $00				;  Flags initialisation
+db $00			;  Flags initialisation
 
 .end
 ENDL
@@ -329,8 +329,8 @@ ld a, [$d730]		; spin check [wStatusFlags5]
 and a
 ret nz
 ldh a, [$b4] 		; If Pressed
-bit 1, a 			; B Button
-ld a, $00			; we cannot use xor a, since it will reset z
+bit 1, a 		; B Button
+ld a, $00		; we cannot use xor a, since it will reset z
 jr z, .skip
 inc a
 .skip
@@ -364,14 +364,14 @@ cp a, $07
 ret nc
 and a
 ret z
-call $0d27			; AdvancePlayerSprite
+call $0d27		; AdvancePlayerSprite
 jr .loop
 
 ENDL
 
 ;;;;;;;;;;;; OAM hijack payload ;;;;;;;;;;;;
 call DMAhijack		; if initial payload changes, change address acordingly - $d6a8
-ld [c], a			; setup to trigger stock OAM payload
+ld [c], a		; setup to trigger stock OAM payload
 
 
 LOAD "timos_loader", WRAMX[$df15]
@@ -382,8 +382,8 @@ LOAD "timos_loader", WRAMX[$df15]
 timosloader:
 ; Read select button state - It automatically skips false positives like it happens in start menu
 ldh a, [$b4]		; Read buttons [hJoyPressed]
-bit 2, a			; Compare to select button [bit2]
-ret z 				; If select not pressed, stop executing
+bit 2, a		; Compare to select button [bit2]
+ret z 			; If select not pressed, stop executing
 
 ldh a, [$b8]		; Saves hLoadedROMBank
 push af
@@ -394,18 +394,18 @@ call tempdata 		; .tempdata - $df2d
 ; safedata - this part should not be overwritten while timos is active, otherwise it will crash
 ld hl, hljump		; We set hl to static address to continue execution after CloseTextDisplay - $df27
 push hl
-call $29e8			; CloseTextDisplay
+call $29e8		; CloseTextDisplay
 
 hljump:
-pop af				; Restores saved rom bank
+pop af			; Restores saved rom bank
 ldh [$b8], a 
 
-jp $2307			; PlayDefaultMusic
+jp $2307		; PlayDefaultMusic
 
 ;;;;;;;;;;;; TimOS loader ;;;;;;;;;;;;
 ; tempdata ($df32) - - this part can be overwritten safely while timos is active
 tempdata:
-call $3719			; SaveScreenTilesToBuffer1
+call $3719		; SaveScreenTilesToBuffer1
 
 ld hl, $cf91		; wCurPartySpecies
 ld [hl], $94		; Change nickname pokemon to Abra, so we avoid random missigno names crashing the game
@@ -418,20 +418,20 @@ ld a, $9d       	; BlipBlop sound
 call $23a1      	; PlayMusic
 
 ld hl, $70c4		; To execute DisplayTextIDInit.drawTextBoxBorder after bankswitch
-call $3922			; Bankswitch to bank 01
+call $3922		; Bankswitch to bank 01
 
 ;;;;;;;;;;;; TimOS payload ;;;;;;;;;;;;
 ; timos - 22 bytes 
-ld a, $1c			; bank number
-call $35e6			; Bankswitch+16
-ld b, $03			; SRAM bank number
+ld a, $1c		; bank number
+call $35e6		; Bankswitch+16
+ld b, $03		; SRAM bank number
 ld hl, $ba53		; Origin/destination
 ld de, $c6e8		; Destination/origin
 push hl
 push de
 push bc
 push de
-call $790f			; CopyBoxToOrFromSRAM+1
+call $790f		; CopyBoxToOrFromSRAM+1
 
 ENDL
 
@@ -442,7 +442,7 @@ LOAD "timos_patch", WRAM0[$c892]
 patch:
 ;;;;;;;;;;;; TimOS return patch ;;;;;;;;;;;;
 ld a, [$d35e]		; wCurMap
-jp $12bc			; SwitchToMapRomBank
+jp $12bc		; SwitchToMapRomBank
 
 ENDL
 
@@ -466,7 +466,7 @@ call common		; $c89a
 and a, b
 ret nz
 xor a
-ld [$d13c], a	; wNumberOfNoRandomBattleStepsLeft
+ld [$d13c], a		; wNumberOfNoRandomBattleStepsLeft
 ret
 
 ; Motorbike - 4 bytes
