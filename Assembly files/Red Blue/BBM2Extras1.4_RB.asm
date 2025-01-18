@@ -38,7 +38,7 @@ Code:
 
 21 e9 c6 46 3e 07 86 77 11 c2  
 c7 1c 1c 05 20 fb 0e 0e 21 d5  
-d8 cd b5 00 0e ea 11 c3 c8 c3  
+d8 cd b5 00 0e f0 11 c3 c8 c3  
 b5 00 e1 c8 2a c9 34 c9 41 c9  
 63 c9 94 c9 ad c9 cd 0f 19 c3  
 29 24 ea 97 cf cd 57 2d a7 fa  
@@ -64,7 +64,7 @@ c8 20 db 3d ea 92 cf 21 43 6e
 cd 22 39 18 cf 21 64 d1 2a 77  
 01 2c 00 11 97 d1 2e 6b cd b5  
 00 11 b5 d2 21 c0 d2 c3 29 38  
-21 a5 76 c3 1a 09  
+21 a5 76 c3 1a 09 
  
 Total Bytes: 286 
 
@@ -98,12 +98,12 @@ dec b
 jr nz, .pointerloop
 
 ; Copy pointers
-ld c, pointers.end-pointers	; 10 bytes: b = 0 from previous operation
+ld c, pointers.end-pointers	; b = 0 from previous operation
 ld hl, pointers		; $d8d5	- origin
 call $00b5		; CopyData
 
 ; Copy payloads
-ld c, end-selector  	; 179 bytes
+ld c, end-emptyscreen
 ld de, $c8c3		; destination
 jp $00b5		; CopyData
 
