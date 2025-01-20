@@ -71,6 +71,13 @@ Total Bytes: 286
 
 
 
+In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the following code afterwards:
+
+af ea e5 c8 ea f5 c8 ea 06 c9  
+ea 22 c9 ea 45 c9 ea 5b c9 ea  
+67 c9 c9  
+
+Total Bytes: 23
 
 
 Source is compiled with RGBDS
