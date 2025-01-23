@@ -32,3 +32,5 @@ This method requires a special procedure which allows the player to build a boot
 
 To use this method, you can follow [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups) tutorial and then follow the instructions included in the corresponding .asm file.
 
+In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the code provided inside the corresponding 2.Extras.asm file.
+
