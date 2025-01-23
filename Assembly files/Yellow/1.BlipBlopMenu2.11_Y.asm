@@ -133,7 +133,8 @@ ff80-ff83: OAM DMA hijack, copies from $bb11
 
 
 
-Source is compiled with QuickRGBDS (https://github.com/M4n0zz/QuickRGBDS)
+Source is compiled with QuickRGBDS
+https://github.com/M4n0zz/QuickRGBDS
 */
 
 DEF CopyData EQU $00b1
