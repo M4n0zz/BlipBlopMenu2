@@ -79,7 +79,7 @@ ea 22 c9 ea 45 c9 ea 5b c9 ea
 Total Bytes: 23
 
 
-Source is compiled with RGBDS
+Source is compiled with QuickRGBDS (https://github.com/M4n0zz/QuickRGBDS)
 
 */
 
