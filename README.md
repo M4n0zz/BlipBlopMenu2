@@ -5,20 +5,20 @@ This mod menu targets original Pokemon Red, Blue and Yellow En versions and enab
 By pressing Select button the menu selector appears enabling the installation/execution of custom code, without altering any of the game's functionality.
 
 BlipBlopMenu2 comes with a series of preinstalled scripts, giving a new feel in game's plot.
-<p><ul> 
-<li>1.  TimoVM's RAM Writer: It allows the direct manipulation of any RAM value.</li>
-<li>2.  TimoVM's Nickname Writer: You can run any compatible nickname code provided by <a href="https://glitchcity.wiki/wiki/Guides:Nickname_Writer_Codes">here</a>.</li>
-<li>3.  Repeller: When active, it permanently repels any wild pokemon.</li>
-<li>4.  Trespasser: By holding B button, all collisions are disabled.</li>
-<li>5.  Motorbike: By holding A button, super bike speed is activated.</li>
-<li>6.  ItemGiver: It gives any item, based on the selected internal ID.</li>
-<li>7.  MonGiver: It gives any pokemon, based on the selected pokedex ID.</li>
-<li>8.  MonEncounter: It encounters any pokemon, based on the selected pokedex ID.</li>
-<li>9.  TrainerEncounter: It encounters any trainer, based on the selected internal ID.</li>
-<li>10. PokeTeacher: Teaches any move on the selected party pokemon.</li>
-<li>11. PokeDuplicator: It duplicates the pokemon in the first party slot to the second party slot.</li>
-<li>12. PokeHealer: Party heal on demand.</li>
-</ul> </p>
+<ol> 
+<li> TimoVM's RAM Writer: It allows the direct manipulation of any RAM value.</li>
+<li> TimoVM's Nickname Writer: You can run any compatible nickname code provided by <a href="https://glitchcity.wiki/wiki/Guides:Nickname_Writer_Codes">here</a>.</li>
+<li> Repeller: When active, it permanently repels any wild pokemon.</li>
+<li> Trespasser: By holding B button, all collisions are disabled.</li>
+<li> Motorbike: By holding A button, super bike speed is activated.</li>
+<li> ItemGiver: It gives any item, based on the selected internal ID.</li>
+<li> MonGiver: It gives any pokemon, based on the selected pokedex ID.</li>
+<li> MonEncounter: It encounters any pokemon, based on the selected pokedex ID.</li>
+<li> TrainerEncounter: It encounters any trainer, based on the selected internal ID.</li>
+<li> PokeTeacher: Teaches any move on the selected party pokemon.</li>
+<li> PokeDuplicator: It duplicates the pokemon in the first party slot to the second party slot.</li>
+<li> PokeHealer: Party heal on demand.</li>
+</ol>
 
 ----
 
