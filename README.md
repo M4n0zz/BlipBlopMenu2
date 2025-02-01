@@ -43,7 +43,7 @@ Method 2:
 
 This method requires a special procedure which allows the player to build a bootstrap from glitching the game to the point where he is allowed to manipulate game's code by using ACE.
 
-To use this method, you can follow [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups) tutorial and then follow the instructions included in the corresponding .asm file.
+To use this method, you can follow [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups) tutorial and then follow the instructions included in the corresponding .asm file of this repository.
 
-In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the code provided inside the corresponding 2.Extras.asm file.
+In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the code provided inside the corresponding "2.Extras.asm" file.
 
