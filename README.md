@@ -1,6 +1,6 @@
 # BlipBlopMenu2
 
-This mod menu targets original Pokemon Red, Blue and Yellow En versions and enables the activation of TimOS environment, originally created by TimoVM from glitchcity.wiki.
+This mod menu targets original Pokemon Red, Blue and Yellow English versions and enables the activation of TimOS environment, originally created by TimoVM from glitchcity.wiki.
 
 By pressing Select button the menu selector appears enabling the installation/execution of custom code, without altering any of the game's functionality.
 
