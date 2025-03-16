@@ -43,7 +43,10 @@ Method 2:
 
 This method is compatible with both VC and non VC versions and requires a special procedure which allows the player to build a bootstrap from glitching the game to the point where he is allowed to manipulate game's code by using ACE.
 
-To use this method, you can follow [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups) tutorial and then follow the instructions included in the corresponding .asm file of this repository.
+To use this method, you need to perform the following steps:
+- [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups): Follow this tutorial up to the point where you have a functional TimOS environment.
+- [Assembly Files](https://github.com/M4n0zz/BlipBlopMenu2/tree/main/Assembly%20files): Follow the included instructions to install hex codes in the correct order using Nickname Writer.
 
-In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the code provided inside the corresponding "2.BlipBlopMenuExtras.asm" file.
+
+In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the 23 byte code provided inside the corresponding "2.BlipBlopMenuExtras.asm" file.
 
