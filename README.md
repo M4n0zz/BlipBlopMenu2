@@ -37,6 +37,7 @@ To do so, you can use one of the following files:
 - [bbm2.py](https://github.com/M4n0zz/BlipBlopMenu2/releases/download/patcher-v1.1/bbm2.py) (Python): Download bbm2.py and run the following command: py bbm2.py [filename].sav
 
 
+
 Method 2 (Hardcore):
 
 **By injecting HEX code inside the game.**
