@@ -1,10 +1,10 @@
 # BlipBlopMenu2
 
-This mod menu targets original Pokemon Red, Blue and Yellow English versions and enables the activation of TimOS environment, originally created by TimoVM from glitchcity.wiki.
+BlipBlopMenu2 is a mod menu designed for the original English versions of Pokémon Red, Blue, and Yellow. It allows players to activate the TimOS environment, originally created by TimoVM from GlitchCity Wiki.
 
-By pressing Select button the menu selector appears enabling the installation/execution of custom code, without altering any of the game's functionality.
+By pressing the Select button in-game, a menu selector appears, enabling the installation and execution of custom code — all without altering the base functionality of the game.
 
-BlipBlopMenu2 comes with a series of preinstalled scripts, giving a new feel in game's plot.
+BlipBlopMenu2 comes with a set of preinstalled scripts that add new functionality and give a fresh twist to the game’s original plot.
 <ol> 
 <li> TimoVM's RAM Writer: It allows the direct manipulation of any RAM value.</li>
 <li> TimoVM's Nickname Writer: You can run any compatible nickname code provided by <a href="https://glitchcity.wiki/wiki/Guides:Nickname_Writer_Codes">here</a>.</li>
@@ -31,7 +31,7 @@ Method 1 (Easy):
 
 **By patching an already existing .sav file.**
 
-This is the simplest method in case you are using an emulator or actual Gameboy hardware with a gameboy cart reader.
+This method is the most straightforward for users running an emulator or using a real Game Boy with access to the cartridge's save data.
 To do so, you can use one of the following files:
 - [bbm2.exe](https://github.com/M4n0zz/BlipBlopMenu2/releases/download/patcher-v1.1/bbm2.exe) (Windows): Drag and drop your .sav file onto bbm.exe. Your savegame will automatically be patched.
 - [bbm2.py](https://github.com/M4n0zz/BlipBlopMenu2/releases/download/patcher-v1.1/bbm2.py) (Python): Download bbm2.py and run the following command: py bbm2.py [filename].sav
