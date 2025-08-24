@@ -37,7 +37,7 @@ Make sure you are not using this area before installation!
 
 Code:
 
-21 e9 c6 46 3e 07 86 77 11 bb  
+21 e9 c6 46 3e 07 86 77 11 c0  
 c7 1c 1c 05 20 fb 0e 0e 21 d4  
 d8 cd b1 00 0e f0 11 c3 c8 c3  
 b1 00 e1 c8 2a c9 34 c9 41 c9  
@@ -100,7 +100,7 @@ add a, [hl]
 ld [hl], a
 
 ; write pointers to the correct position
-ld de, $c7bb		; destination - script #1
+ld de, $c7c0		; destination - script #1
 .pointerloop
 inc e
 inc e
@@ -271,4 +271,5 @@ jp $074b            	; hardcoded rombankswitch 3
 
 end:
 ENDL
+
 
