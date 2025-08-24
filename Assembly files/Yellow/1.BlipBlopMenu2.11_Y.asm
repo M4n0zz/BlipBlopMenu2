@@ -36,7 +36,7 @@ c8 21 69 d6 e5 cd b1 00 0e 85
 d1 21 fb d8 cd b1 00 0e 12 11  
 9c d4 cd b1 00 0e 18 1e 7a cd  
 b1 00 0e 4c 11 11 bb cd b1 00  
-0e 08 11 bd c7 cd b1 00 0e 19  
+0e 08 11 c2 c7 cd b1 00 0e 19  
 11 98 c8 cd b1 00 3e 05 ea e9  
 c6 fa 5c df fe 7c 28 2e f3 3e  
 02 cd 99 3e 01 04 00 11 80 ff  
@@ -178,7 +178,7 @@ call CopyData		; CopyData
 
 ; move TimOS pointer
 ld c, $08		; 8 bytes
-ld de, $c7bd		; destination
+ld de, $c7c2		; destination
 call CopyData		; CopyData
 
 ; move TimOS enablers
@@ -461,3 +461,4 @@ ld b, $04
 jr common
 
 ENDL
+
