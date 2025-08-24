@@ -35,7 +35,7 @@ Code:
 11 51 c8 21 6a d6 e5 cd b5 00  
 0e 80 d1 21 ff d8 cd b5 00 0e  
 32 11 30 d4 cd b5 00 0e 4c 11  
-11 bb cd b5 00 0e 08 11 c4 c7  
+11 bb cd b5 00 0e 08 11 c9 c7  
 cd b5 00 0e 1f 11 92 c8 cd b5  
 00 3e 05 ea e9 c6 21 03 c7 3e  
 92 22 36 c8 fa 5c df fe 79 28  
@@ -180,7 +180,7 @@ call CopyData
 
 ; move TimOS pointer
 ld c, $08		; 8 bytes
-ld de, $c7c4		; destination
+ld de, $c7c9		; destination
 call CopyData
 
 ; move TimOS enablers + patch
@@ -475,5 +475,6 @@ ld b, $04
 jr common		; .common
 
 ENDL
+
 
 
