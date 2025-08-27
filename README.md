@@ -1,8 +1,8 @@
 # BlipBlopMenu2
 
-BlipBlopMenu2 is a mod menu designed for the original English versions of Pokémon Red, Blue, and Yellow. It allows players to activate the TimOS environment, originally created by TimoVM from GlitchCity Wiki.
+BlipBlopMenu2 is an ACE wrapper, designed for the original English versions of Pokémon Red, Blue, and Yellow. It allows players to activate the [TimOS](https://glitchcity.wiki/wiki/Guides:Nickname_Writer_Codes#Installing_a_RAM_writer_environment_(TimOS)) environment, originally created by TimoVM from GlitchCity Wiki.
 
-By pressing the Select button in-game, a menu selector appears, enabling the installation and execution of custom code — all without altering the base functionality of the game.
+By pressing Select button, TimOS selector appears, enabling the installation and execution of custom code — all without altering the base functionality of the game.
 
 BlipBlopMenu2 comes with a set of preinstalled scripts that add new functionality and give a fresh twist to the game’s original plot.
 <ol> 
@@ -48,6 +48,6 @@ To use this method, you need to perform the following steps:
 - [TimoVM's gen 1 ACE setups](https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_1_ACE_setups): Follow this tutorial up to the point where you have a functional TimOS environment.
 - [Assembly Files](https://github.com/M4n0zz/BlipBlopMenu2/tree/main/Assembly%20files): Follow the included instructions to install hex codes using Nickname Writer in the correct order (first file 1, then file 2).
 
-
-In case you want to go beyond the limits and get glitch items, pokemon, moves or trainers, you can input the 23 byte code provided inside the corresponding "2.BlipBlopMenuExtras.asm" file.
+All scripts target to a smooth user's experience, so it come with the original game's limitations.
+In case you want to go beyond these limits and get glitch items, pokemon, moves or trainers, you can input the 23 byte code provided inside the corresponding "2.BlipBlopMenuExtras.asm" file.
 
